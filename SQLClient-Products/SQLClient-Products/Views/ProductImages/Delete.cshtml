@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Delete Product</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="warning">@ViewBag.Error</div>
+}
+
+
+
+<table class="table table-hover">
+    <tr>
+        <th>Image Id</th>
+        <th>Item Id</th>
+        <th>Item Url</th>
+      
+
+
+        <th></th>
+    </tr>
+   
+        <tr>
+            <td>@Model.ImageId</td>
+            <td>@Model.ItemId</td>
+            <td>@Model.ItemUrl</td>
+           
+
+
+
+            <td>
+
+                <a href="@Url.Action("DeleteConfirmation", "ProductImages", new {id = Model.ImageId })" class="btn btn-primary btn-danger">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    
+</table>
+

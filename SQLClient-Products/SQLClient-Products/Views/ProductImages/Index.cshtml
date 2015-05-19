@@ -3,5 +3,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+<a href="@Url.Action("Create", "ProductImages", new {id = ViewBag.Message })" class="btn btn-primary btn-sm">
+    Add Image
+</a>
+
+<table class="table table-hover">
+    <tr>
+        <th>Image Id</th>
+        <th>Item Id</th>
+        <th>Item Image</th>
+       
+
+
+        <th></th>
+    </tr>
+    @foreach (var image in Model)
+    {
+        <tr>
+            <td>@image.ImageId</td>
+            <td>@image.ItemId</td>
+            <td>@image.ItemUrl</td>
+           
+
+
+
+            <td>
+  
+                <a href="@Url.Action("Delete", "ProductImages", new {id = image.ImageId })" class="btn btn-primary btn-danger">
+                    Delete
+                </a>
+
+            </td>
+        </tr>
+    }
+</table>
 

@@ -59,41 +59,7 @@ namespace SQLClient_Products.Controllers
         /// <returns></returns>
         /// 
 
-        public ActionResult UploadFile(HttpPostedFileBase file)
-        {
-            string url;
-            //if theres a file
-            if (Request.Files.Count > 1)
-            {
-                try
-                {
-                    //get file name
-                    var filename = Path.GetFileName(file.FileName);
-                    var fileNamePath = Path.Combine(Server.MapPath("~/Content/Uploads"), filename);
-                    file.SaveAs(fileNamePath);
-
-                    ViewBag.Message = "File uploaded correctly";
-                    //assigs the relative path to the item url propierty
-                    url = "~/Content/Uploads/" + filename;
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Message = ex.ToString();
-                }
-
-
-
-            }
-            else
-            {
-                //<td><img src="@Url.Content(product.ItemUrl)" alt="Image" width="100" height="100" /></td>
-                //if not file was uploaded it adds a default image
-                url = "~/Content/Uploads/DefaultImage.jpg";
-            }
-
-            return View();
-        }
-
+       
         [HttpPost]
         public ActionResult Create(Product item)
         {
